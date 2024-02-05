@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}
+Question
+{% endblock %}
+{% block content %}
+<p>{{ question }}</p>
+{% for choice in choices %}
+<p>{{ choice }}</p>
+{% endfor %}
+{% endblock %}
