@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
 from flask_debugtoolbar import DebugToolbarExtension
 from surveys import surveys
 
@@ -25,4 +25,11 @@ def ask_questions(number):
     choices = quest.choices  
     return render_template('question.html', question = question, choices = choices)
   else:
-    return render_template('thanks.html')
+    return redirect('/thanks')
+  
+@app.route('/answer')
+def record_answer():
+  answer = request.args["answer"]
+  responses.append(answer)
+  num = len(responses)
+  return redirect(url_for('ask_questions', number=num))

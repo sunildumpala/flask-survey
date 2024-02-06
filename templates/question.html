@@ -3,8 +3,14 @@
 Question
 {% endblock %}
 {% block content %}
-<p>{{ question }}</p>
-{% for choice in choices %}
-<p>{{ choice }}</p>
-{% endfor %}
+<form action="/answer">
+  <p>{{ question }}</p>
+  {% for choice in choices %}
+  <input type="radio" id="{{choice}}" name="answer">
+  <label for="{{choice}}">{{choice}}</label>
+  {% endfor %}
+  <p>
+    <button>Submit</button>
+  </p>
+</form>
 {% endblock %}
