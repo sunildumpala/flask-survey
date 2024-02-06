@@ -27,9 +27,9 @@ def ask_questions(number):
   else:
     return redirect('/thanks')
   
-@app.route('/answer')
+@app.route('/answer', methods=["POST"])
 def record_answer():
-  answer = request.args["answer"]
+  answer = request.form["answer"]
   responses.append(answer)
   num = len(responses)
   return redirect(url_for('ask_questions', number=num))

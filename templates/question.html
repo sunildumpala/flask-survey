@@ -3,7 +3,7 @@
 Question
 {% endblock %}
 {% block content %}
-<form action="/answer">
+<form action="/answer" method="post">
   <p>{{ question }}</p>
   {% for choice in choices %}
   <input type="radio" id="{{choice}}" name="answer">
